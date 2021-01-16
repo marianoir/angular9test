@@ -1,0 +1,96 @@
+
+// _base.sass
+$font-stack:    Helvetica, sans-serif
+$primary-color: #FF0000
+$buttonhover-color: #FF5522
+
+$tablefontsize : 1.3em
+
+
+body
+  font: 100% $font-stack
+  color: $primary-color
+  padding:5px
+
+h3
+   font-size : 1.2em
+   
+
+.link
+     text-decoration: underline
+.link:hover 
+   color: $buttonhover-color
+   cursor: pointer
+
+.link:active 
+   color: $buttonhover-color
+ 
+
+table       
+       background-color: #e8e8e4      
+       border: 1px solid #666666              
+       font-size: 0.7em
+
+
+.wide
+   width: 800px
+   margin: auto
+
+.options
+      font-size : 1.1em
+
+.options > a 
+      font-size: 1.3em
+      color: #FF3434
+	
+.options > a:hover
+      font-size: 1.3em
+      color: #FFFFFF
+
+
+
+.row  
+  font-size: $tablefontsize
+
+.rowHeader  
+  font-size: $tablefontsize
+  background-color: #264653 
+  
+.column  
+  text-align: center    
+  font-size: $tablefontsize
+  
+
+.button 
+   border-radius: 8px
+   padding: 15px 15px 15px 15px
+   text-align: center
+   background-color: $primary-color
+   color: #FFFF
+
+.button:hover
+   background-color: $buttonhover-color  
+   pointer: cursor
+
+.smallDiv
+   margin: auto
+   width: 30%
+
+.mediumDiv
+   margin: auto
+   width: 60%
+   
+.popup 
+   background-color: #FFFFAA
+   border: 1px solid #FF0000
+   box-shadow:10px #000
+   height: 200px
+   width: 400px
+   border-radius : 5px
+
+.center 
+   margin: 0
+   position: absolute
+   top: 50% 
+   left: 50% 
+   transform: translate(-50%, -50%) 

@@ -1,0 +1,87 @@
+
+
+
+
+<div  *ngIf="isList">
+
+    <div class="wide">
+        <canvas  #lineChart>ff</canvas>
+
+    </div>
+   
+    <div class="wide" >
+
+        <h3>Tasks list</h3>
+
+        <div class="options">
+            <span class="link" (click)="find('I')" > Incomplete </span> | <span class="link" (click)="find('D')">Done</span>
+            <div class="link" (click)="newTask()" style="float: right">New Task</div>
+        </div>
+
+    </div>
+  
+
+    <hr class="mainWide">
+
+    <div class="wide" style="text-align: center;" *ngIf="state == 'I'" >
+           Incomplete
+    </div>
+    <div class="wide"  style="text-align: center;"  *ngIf="state == 'D'" >
+        Done
+ </div>
+    <table class="divTable wide">
+        <tr class="rowHeader">
+
+                <td class="column">Date</td>
+                <td class="column">Name</td>
+                <td class="column">Modify</td>
+                <td class="column">Complete</td>
+
+        </tr> 
+
+        <tr *ngFor="let task of tasks" class="row">
+
+            <td class="column">{{task.createdAt | date : 'dd/MM/yyyy hh:mm' }}</td>
+            <td class="column">{{task.name}}</td>
+            <td class="column"  >
+                <span class="link" (click)="editTask(task._id)" *ngIf="task.state == 'I'" href="">Edit</span>
+                <span class="link" (click)="deleteTask(task._id)" *ngIf="task.state == 'D'" href="">Delete</span>
+
+
+            </td>
+            <td class="column"  >
+                <span class="link" (click)="completeTask(task._id)" *ngIf="task.state == 'I'" href="">Mark as Completed</span>    
+                <p *ngIf="task.state == 'D'" href="">Completed</p>  
+            </td>
+
+        </tr>
+         <tr *ngIf="tasks.length == 0" class="row" style="text-align: center;">
+                    There are no tasks to show
+         </tr>
+    </table>  
+   
+</div>
+
+<div  *ngIf="!isList" class="wide" >
+    <h4 class="link" (click)="goBack()">Back <<</h4>
+    <h3>Create new Task</h3>
+
+    
+    <div class="mediumDiv">
+        <div style="text-align: center;">Task Name
+      
+            <input type="text"  ngModel  [(ngModel)]="taskName"  name="taskName" placeholder="Task Name"> 
+       </div>
+
+    </div>    
+        <div class="smallDiv" style="margin-top: 30px;">
+
+                <div class="button" (click)="save(_id)">
+                Save
+                </div>
+
+        </div>    
+
+    
+</div>
+
